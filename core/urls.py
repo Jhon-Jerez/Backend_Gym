@@ -1,8 +1,6 @@
 from django.urls import path
-from .views import RegisterOwnerView, RegisterReceptionistView, LoginView
+from .views import RegisterOwnerView
 
 urlpatterns = [
-    path('register/owner/', RegisterOwnerView.as_view(), name='register-owner'),
-    path('register/receptionist/', RegisterReceptionistView.as_view(), name='register-receptionist'),
-    path('login/', LoginView.as_view(), name='token_obtain_pair'),
+    path("register-owner/", RegisterOwnerView.as_view(), name="register-owner"),
 ]
