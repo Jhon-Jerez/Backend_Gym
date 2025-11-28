@@ -9,8 +9,7 @@ class User(AbstractUser):
         
 
     role = models.CharField(max_length=20, choices=Roles.choices, default=Roles.OWNER)
-    gym = models.ForeignKey(
-        "gyms.Gym",  # 🔹 Referencia perezosa para evitar ciclo
+    gym = models.ForeignKey("gyms.Gym",
         on_delete=models.CASCADE,
         null=True,
         blank=True,
