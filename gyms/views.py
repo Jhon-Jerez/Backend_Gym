@@ -51,5 +51,17 @@ class MemberRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
 
 
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def buscar_miembro(request):
+    cedula = request.query_params.get("cedula", None)
+    if not cedula:
+        return Response({"detail": "Debe enviar la cédula."}, status=400)
+
+    try:
+        miembro = Member.objects.get(cedula=cedula)
+        return Response(MemberSerializer(miembro).data, status=200)
+    except Member.DoesNotExist:
+        return Response({"detail": "Usuario no encontrado."}, status=404)
 
 
