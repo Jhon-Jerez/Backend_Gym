@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'core',
     'gyms',
     'products',
-    'memberships',
+    'calendario',
     'sales',
 ]
 

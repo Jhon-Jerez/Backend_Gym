@@ -27,5 +27,7 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/core/', include('core.urls')),
     path("api/gyms/", include("gyms.urls")),
+    path("api/calendario/", include("calendario.urls")),
+
 
 ]

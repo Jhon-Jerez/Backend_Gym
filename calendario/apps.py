@@ -1,6 +1,5 @@
 from django.apps import AppConfig
 
-
-class MembershipsConfig(AppConfig):
+class CalendarConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'memberships'
+    name = 'calendario'
