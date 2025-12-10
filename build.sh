@@ -2,11 +2,8 @@
 set -o errexit
 pip install -r requirements.txt
 
-# 1. CREAR SUPERUSUARIO (Para acceder al /admin/)
-python manage.py shell -c "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(email='admin@gimnasio.com').exists() or User.objects.create_superuser(username='superadmin', email='admin@gimnasio.com', password='Jhon_Doe_123')"
-
-# 2. CREAR USUARIO OWNER (Para el primer Gimnasio)
-python manage.py shell -c "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(email='owner@gimnasio.com').exists() or User.objects.create_user(username='owner1', email='owner@gimnasio.com', password='Owner_Pass_123', is_staff=True)"
+# 3. CREAR OBJETO GYM Y ASIGNAR EL OWNER
+python manage.py shell -c "from django.contrib.auth import get_user_model; from gyms.models import Gym; User = get_user_model(); owner = User.objects.get(email='owner@gimnasio.com'); Gym.objects.filter(name='SpartanosGym').exists() or Gym.objects.create(name='SpartanosGym', owner=owner)"
 
 python manage.py collectstatic --no-input
 python manage.py migrate
