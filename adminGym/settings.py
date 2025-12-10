@@ -36,16 +36,23 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
+    # 1. Tu app de usuario DEBE ir aquí
     'core',
+
+    # 2. Las apps de Django van después
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 3. Librerías de terceros
+    'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
-    'corsheaders',
+
+    # 4. Tus otras apps
     'gyms',
     'products',
     'calendario',
