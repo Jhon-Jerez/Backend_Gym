@@ -171,12 +171,12 @@ if not DEBUG:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://backend-gym-apii.onrender.com"
+    "https://backend-gym-apii.onrender.com",  # <-- ¡Añadir coma!
     "http://localhost:5173", 
     "http://localhost:3000", 
     "http://127.0.0.1:5173",
-    "http://127.0.0.1:3000"
-    "https://frontend-gym-j294.onrender.com"
+    "http://127.0.0.1:3000",                  # <-- ¡Añadir coma!
+    "https://frontend-gym-j294.onrender.com" 
 ]
 
 CORS_ALLOW_CREDENTIALS = True
